@@ -1,0 +1,16 @@
+.header {
+	background-color: gray;
+	height: 5rem;
+}
+.sidebar {
+	background-color: black;
+	display: inline;
+}
+.footer {
+	background-color: gray;
+	height: 5rem;
+}
+.cardContainer {
+	height: 30rem;
+	display: inline;
+}
