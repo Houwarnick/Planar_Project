@@ -2,15 +2,29 @@
 	background-color: gray;
 	height: 5rem;
 }
-.sidebar {
-	background-color: black;
-	display: inline;
-}
 .footer {
+	clear: both;
 	background-color: gray;
 	height: 5rem;
 }
+.mainContainer {
+	width:100%;
+}
 .cardContainer {
 	height: 30rem;
-	display: inline;
+	width:80%;
+	background-color: red;
+	float: left;
+}
+.left {
+	float: left;
+	background-color: black;
+	width: 10%;
+	height: 30rem;
+}
+.right {
+	float: left;
+	background-color: black;
+	width: 10%;
+	height: 30rem;
 }
