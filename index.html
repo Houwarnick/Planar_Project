@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="planarApp">
   <head>
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
-  <body>
+  <body ng-controller="cardCtrl">
   	<div class="header">
   	</div>
   	<div class="mainContainer">
   	  <div class="left">
+        <button ng-click="previousPlane()">Prev.</button>
   	  </div>
   	  <div class="cardContainer">
+        {{currentPlane}} {{planarDeck[currentPlane].name}}
   	  </div>
   	  <div class="right">
+        <button ng-click="planeswalk()">Next</button>
   	  </div>	
   	</div>
   	<div class="footer">
   	</div>
+    
+    <script src="node_modules/angular/lib/angular.js"></script>
+    <script src="node_modules/underscore/underscore.js"></script>
+    <script src="JS/app.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/cardService.js"></script>
   </body>
 </html>

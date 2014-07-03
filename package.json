@@ -1,0 +1,8 @@
+{
+  "name": "Planar_Project",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "^1.2.19",
+    "underscore": "^1.6.0"
+  }
+}

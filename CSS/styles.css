@@ -1,17 +1,26 @@
+html {
+	height: 768px;
+	width: 1024px;
+}
+body {
+	height: 100%;
+	width: 100%;
+}
 .header {
 	background-color: gray;
-	height: 5rem;
+	height: 15%;
 }
 .footer {
 	clear: both;
 	background-color: gray;
-	height: 5rem;
+	height: 15%;
 }
 .mainContainer {
+	height:70%;
 	width:100%;
 }
 .cardContainer {
-	height: 30rem;
+	height: 100%;
 	width:80%;
 	background-color: red;
 	float: left;
@@ -20,11 +29,11 @@
 	float: left;
 	background-color: black;
 	width: 10%;
-	height: 30rem;
+	height: 100%;
 }
 .right {
 	float: left;
 	background-color: black;
 	width: 10%;
-	height: 30rem;
+	height: 100%;
 }
