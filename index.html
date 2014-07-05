@@ -5,16 +5,24 @@
   </head>
   <body ng-controller="cardCtrl">
   	<div class="header">
-  	</div>
+      <div class="headerBlock" ng-click="roll()">
+        <img ng-src="./Media/dice/{{dieFace}}.jpeg"/>
+  	  </div>
+    </div>
   	<div class="mainContainer">
-  	  <div class="left">
+  	  <div class="float">
         <button ng-click="previousPlane()">Prev.</button>
-  	  </div>
+        <button ng-click="viewCurrent()">Current</button>
+      </div>
+
   	  <div class="cardContainer">
-        {{currentPlane}} {{planarDeck[currentPlane].name}}
+        <img class="card" ng-src="./Media/{{planarDeck[viewPlane].cardID}}.jpeg"/>
+        <img class="card" ng-show="hideSpatial" ng-src="./Media/{{planarDeck[spatialPlane2].cardID}}.jpeg"/>
   	  </div>
-  	  <div class="right">
+  	  <div class="float">
         <button ng-click="planeswalk()">Next</button>
+        <button ng-show="hideSpatial" ng-click="viewSpatial1()">Show Spatial1</button>
+         <button ng-show="hideSpatial" ng-click="viewSpatial2()">Show Spatial2</button>
   	  </div>	
   	</div>
   	<div class="footer">
