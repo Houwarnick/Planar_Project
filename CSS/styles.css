@@ -33,17 +33,44 @@ body {
 .cardContainer {
 	height: 538px;
 	width:820px;
-	background-color: red;
+	background-color: black;
 	float: left;
 }
 .card {
 	background-size: 400px 279px;
 	background-color: black;
 	border-radius: 23px;
+	position: relative;
+	top:135px;
+	left:200px;
+	
+}
+.spatialCard {
+	background-size: 400px 279px;
+	background-color: black;
+	border-radius: 23px;
+	position: relative;
+	top:135px;
+	margin-left: 6px
+	
 }
 .float {
 	float: left;
 	background-color: black;
 	width: 102px;
 	height: 538px;
+}
+
+.modal-dialog {
+	position: relative;
+	top: 100px;
+	height: 510px;
+	width: 435px;
+} 
+.modal-content {
+	height: 410px;
+	width: 435px;
+	overflow-y: scroll;
+	
+
 }
