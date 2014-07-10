@@ -9,6 +9,7 @@
       <div class="headerBlock" ng-click="roll()">
         <img ng-src="./Media/dice/{{dieFace}}.jpeg"/>
   	  </div>
+       {{planarDeck.length}} prevCards: {{prevCards.length}}
     </div>
   	<div class="mainContainer" >
   	  
@@ -20,11 +21,11 @@
       </div>
 
   	  <div class="cardContainer">
-        <img class="card" ng-show="!hideSpatial" ng-src="./Media/{{planarDeck[viewPlane].cardID}}.jpeg"/>
-        <img class="spatialCard" ng-show="hideSpatial" ng-src="./Media/{{planarDeck[viewPlane].cardID}}.jpeg"/>
-        <img class="spatialCard" ng-show="hideSpatial" ng-src="./Media/{{planarDeck[spatialPlane2].cardID}}.jpeg"/>
+        <img class="card" ng-show="!hideSpatial" ng-src="./Media/{{planarDeck[0].cardID}}.jpeg"/>
         
-        <div class="modalContainer">
+        <img class="spatialCard" ng-show="hideSpatial" ng-src="./Media/{{planarDeck[0].cardID}}.jpeg"/>
+        <img class="spatialCard" ng-show="hideSpatial" ng-src="./Media/{{planarDeck[1].cardID}}.jpeg"/>
+        
         <div class="modal fade">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -32,8 +33,8 @@
                  <button type="button" class="close" data-dismiss="modal" ng-click="hidePrevModal()" ><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                  <h4 class="modal-title">Previous Planes Since Shuffle</h4>
                </div>
-               <div class="modal-body" ng-repeat="card in prevCards">
-                 <img ng-src="./Media/{{card}}.jpeg"/>
+               <div class="modal-body" ng-repeat="card in prevCards track by $index">             
+                 <img ng-src="./Media/{{card.cardID}}.jpeg"/>
                </div>
                <div class="modal-footer">
                  <button type="button" class="btn btn-default" data-dismiss="modal" ng-show="prevModal" ng-click="hidePrevModal()">Close</button>
@@ -41,7 +42,24 @@
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-        </div>
+        
+        <!-- <div class="modal fade" id="intTunnel">
+          <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                 <button type="button" class="close" data-dismiss="modal" ng-click="hidePrevModal()" ><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                 <h4 class="modal-title">Pick which plane to go to next</h4>
+               </div>
+               <div class="modal-body" ng-repeat="card in prevCards">
+                 <img ng-src="./Media/{{card}}.jpeg"/ ng-click="selectedCard({{card}})">
+               </div>
+               <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-show="prevModal" ng-click="hidePrevModal()">Close</button>
+               </div> -->
+           <!-- </div> /.modal-content -->
+         <!-- </div>/.modal-dialog -->
+       <!-- </div> /.modal -->
+
 
   	  </div>
   	  <div class="float">

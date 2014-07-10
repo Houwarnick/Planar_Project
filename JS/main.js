@@ -1,54 +1,41 @@
 var app = angular.module('planarApp');
   app.controller('cardCtrl', function($scope, cardService) {
   	$scope.dieFace=1;
-    $scope.currentPlane = 0;
     $scope.viewPlane = $scope.currentPlane;
     $scope.planarDeck = cardService.cards;
     $scope.hideSpatial = false;
     $scope.prevModal = false;
     $scope.prevCards = [];
-    $scope.spatialPlane1 = 0;
-    $scope.spatialPlane2 = 0;
+    var notUsedCards = [];
+    var spatialPlane1 = {};
+    var spatialPlane2 = {};
+
     $scope.genDeck = function(deckArray){
     	$scope.planarDeck = cardService.genDeck(deckArray);
+      $scope.prevCards = [];
     }
     //goes to the next card, doesn't change viewCard
     //if it tries to go past the last card, deck is shuffled and
     //started over.
     var nextCard = function (){
-      if($scope.currentPlane === $scope.planarDeck.length - 1){
-        $scope.currentPlane = 0;
-        $scope.genDeck($scope.planarDeck);
+
+      if($scope.planarDeck.length > 1){
+        $scope.prevCards.unshift($scope.planarDeck.shift());
       }
       else{
-        $scope.currentPlane += 1;
+        $scope.prevCards.unshift($scope.planarDeck.shift());
+        $scope.genDeck($scope.prevCards);
       }
     }
 
     //Go to the next plane, if last card, shuffle deck and set currentPlane to zero
   	$scope.planeswalk = function(){
   		$scope.hideSpatial = false;
-      $scope.spatialPlane1 = 0;
-      $scope.spatialPlane2 = 0;
       nextCard();
-      $scope.viewPlane = $scope.currentPlane;
       $scope.isSpatial();
+      // $scope.isIntTunnel();
   	}
 
-    //changes the viewable plane to previous planes, does not change currentPlane.
-    //Will not do anything if current plane's index is zero
-  	$scope.previousPlane = function(){
-  		if($scope.viewPlane === 0){
-  			return
-  		}
-  		else{
-  		  $scope.viewPlane -= 1;
-  		}
-  	}
-
-    // $scope.viewCurrent = function(){
-    //   $scope.viewPlane = $scope.currentPlane;
-    // }
 
     //rolls a virtual 6 sided die, side 1 executes planeswalk,
     //side 6 shows chaos side, all others show a blank side.
@@ -61,41 +48,61 @@ var app = angular.module('planarApp');
 
     //check for spatial merging card
     $scope.isSpatial = function(){
-      if($scope.planarDeck[$scope.currentPlane].cardID === "39"){
+      var spatialPlane1;
+      var spatialPlane2;
+      if($scope.planarDeck[0].cardID === "39"){
         alert("Spatial Merging, The next 2 planes are active!");
         $scope.hideSpatial = true;
-         while(!$scope.spatialPlane1 || !$scope.spatialPlane2){
-          nextCard();
-          if($scope.planarDeck[$scope.currentPlane].type === "plane"){
-            if(!$scope.spatialPlane1){
-              $scope.spatialPlane1 = $scope.currentPlane;
-            }//end of inside if
+        //debugger;
+         while(!spatialPlane1 || !spatialPlane2){
+          if($scope.prevCards.length === 40){
+            $scope.genDeck($scope.prevCards);
+          }
+          if($scope.planarDeck[0].type === 'plane'){
+            if(!spatialPlane1){
+              spatialPlane1 = $scope.planarDeck.shift();
+            }
             else{
-              $scope.spatialPlane2 = $scope.currentPlane;
-            }//end of else
-          }//end of outside if
+              spatialPlane2 = $scope.planarDeck.shift();
+            }
+          }
+          else{
+            $scope.prevCards.unshift($scope.planarDeck.shift());
+          }
          }//end of while loop
-         $scope.viewPlane = $scope.spatialPlane1;
+         $scope.planarDeck.unshift(spatialPlane2);
+         $scope.planarDeck.unshift(spatialPlane1);
       }//end of containing if
     }//end of isSpatial function
 
 
     //show the previous cards modal
     $scope.viewPrevModal = function(){
-      $scope.prevCards = [];
-      for(var i = $scope.currentPlane-1; i >= 0; i--){
-        $scope.prevCards.push($scope.planarDeck[i].cardID);
-      }
-      console.log($scope.prevCards);
-      console.log($, $('.modal'));
       $('.modal').modal();
-      /*
-      $scope.prevModal = true;
-      */
     }
 
-    //hide the previous cards modal
-    $scope.hidePrevModal = function(){
-      $scope.prevModal = false;
+    $scope.viewIntTunnel = function(){
+      $scope.prevCards = [];
+      var planeCount = 0;
+      while(planeCount < 5){
+        nextCard();
+        if($scope.planarDeck[$scope.currentPlane].type === 'plane'){
+          $scope.prevCards.push($scope.planarDeck[$scope.currentPlane].cardID);
+          planeCount += 1;
+        }
+        $('#intTunnel').modal();
+      }
     }
+
+     $scope.isIntTunnel = function(){
+      if($scope.planarDeck[$scope.currentPlane].cardID === "34"){
+        alert("Interplanar Tunnel, choose which plane to planeswalk to");
+        $scope.viewIntTunnel();
+      }
+    }
+
+    $scope.selectedCard = function(){
+
+    }
+
   })
