@@ -1,0 +1,13 @@
+     <div class="cardList">
+      <ul ng-repeat="card in allCards">
+       <li>
+         <input type="checkbox" name="{{card.name}}" id="{{card.cardID" ng-model="card.checked" ng-change="selectedCards()">
+         <label for="{{card.name}}">{{card.name}}</label>
+       </li>
+      </ul>
+     </div>
+
+     <div class="startContainer">
+      <a ng-click="toGameView()"><button class="btn">Start Game</button></a>
+     </div>
+    
