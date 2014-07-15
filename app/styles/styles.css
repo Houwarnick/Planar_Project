@@ -17,8 +17,7 @@ body {
 	width: 75px;
 	background-color: white;
 	position:absolute;
-    left:150px;
-    top:25px;
+	display: inline-block;
     z-index:1;
 }
 .footer {
@@ -74,4 +73,14 @@ body {
 	overflow-y: scroll;
 	
 
+}
+
+#counter {
+    left:350px;
+    top:20px;
+}
+
+#dice {
+    left:150px;
+    top:20px;
 }

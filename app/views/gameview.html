@@ -1,9 +1,12 @@
 
   	<div class="header">
-      <div class="headerBlock" ng-click="roll()">
+      <div class="headerBlock" ng-click="roll()" id="dice">
         <img ng-src="./images/dice/{{dieFace}}.jpeg"/>
   	  </div>
-       {{planarDeck.length}} prevCards: {{prevCards.length}}
+
+      <div class="headerBlock" id="counter" ng-click="">
+        <span>0</span>
+      </div>
     </div>
   	<div class="mainContainer" >
   	  
