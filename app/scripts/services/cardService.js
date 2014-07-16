@@ -247,11 +247,10 @@ app.factory('cardService', function(){
       }
     ],
     genDeck: function(arr){
-      return _.shuffle(arr)
+        return _.shuffle(arr)
     },
     setDeck: function(arr){
       playDeck = arr;
-      console.log(playDeck);
     },
     getDeck: function(){
       return playDeck;

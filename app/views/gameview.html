@@ -5,9 +5,20 @@
   	  </div>
 
       <div class="headerBlock" id="counter" ng-click="">
-        <span>0</span>
+        <span class="counterText">{{counter}}</span>
+        <div id="counterTop" ng-click="incCounter()">
+        </div>
+        <div id="counterBot" ng-click="decCounter()">
+        </div>
       </div>
+
+      <div ng-click="planeswalk()" id="pw">
+        <img src="./images/pwSymbol.jpg"/>
+      </div>
+
     </div>
+
+
   	<div class="mainContainer" >
   	  
       
@@ -63,5 +74,6 @@
   	  </div>	
   	</div>
   	<div class="footer">
+      {{planarDeck.length}}
   	</div>
    

@@ -6,6 +6,7 @@ body {
 	height: 768px;
 	width: 1024px;
 }
+
 .header {
 	background-color: gray;
 	height: 115px;
@@ -19,6 +20,9 @@ body {
 	position:absolute;
 	display: inline-block;
     z-index:1;
+}
+.headerBlock img {
+	border-radius: 15px;
 }
 .footer {
 	clear: both;
@@ -74,13 +78,55 @@ body {
 	
 
 }
+.counterText {
+	position: relative;
+	font-size: 60px;
+	left: 21px;
+	top: -5px;
 
+}
 #counter {
-    left:350px;
+    left:475px;
     top:20px;
+    border-radius: 15px;
+    z-index: 2;
 }
 
 #dice {
-    left:150px;
+	border-radius: 15px;
+    left:275px;
     top:20px;
 }
+
+#pw {
+	border-radius: 15px;
+	left: 675px;
+	top: 10px;
+	background-color: transparent;
+	position: absolute;
+	display: inline-block;
+    z-index:1;
+}
+
+#counterTop {
+	background-color: white;
+	width: 75px;
+	height: 38px;
+	z-index: 3;
+	position: absolute;
+	opacity: 0;
+	left: 0px;
+	top: 0px;
+}
+
+#counterBot {
+	background-color: white;
+	width: 75px;
+	height: 37px;
+	z-index: 3;
+	position: absolute;
+	opacity: 0;
+	left: 0px;
+	top: 38px;
+}
+

@@ -19,13 +19,12 @@ angular.module('planarApp')
 
 
     $scope.toGameView = function(){
-    	cardService.setDeck($scope.allCards);
+    	cardService.setDeck($scope.planarDeck);
     	$location.path('/gameview');
     }
 
     $scope.initGame = function(){
       $scope.planarDeck = cardService.getDeck();
-      console.log(cardService.getDeck());
       $scope.genDeck($scope.planarDeck);
     }
 

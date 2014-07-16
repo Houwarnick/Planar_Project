@@ -1,6 +1,6 @@
 angular.module('planarApp')
   .controller('GameCtrl', function ($scope, $filter, cardService) {
-  	$scope.dieFace=1;
+  	$scope.dieFace=2;
     $scope.allCards = cardService.cards;
     $scope.hideSpatial = false;
     $scope.prevModal = false;
@@ -9,11 +9,16 @@ angular.module('planarApp')
     var notUsedCards = [];
     $scope.spatialPlane1 = {};
     $scope.spatialPlane2 = {};
+    $scope.counter = 0;
 
 
 
     $scope.genDeck = function(deckArray){
     	$scope.planarDeck = cardService.genDeck(deckArray);
+        if($scope.planarDeck[0].type === "phenom") {
+        console.log("I'm reshuffling");
+        $scope.genDeck($scope.planarDeck);
+      }
       $scope.prevCards = [];
     }
     //goes to the next card, doesn't change viewCard
@@ -55,9 +60,12 @@ angular.module('planarApp')
     //rolls a virtual 6 sided die, side 1 executes planeswalk,
     //side 6 shows chaos side, all others show a blank side.
     $scope.roll = function(){
-      $scope.dieFace = _.random(0, 6);
+      $scope.dieFace = _.random(1, 6);
       if($scope.dieFace === 1){
         $scope.planeswalk();
+      }
+      else if($scope.dieFace === 2 || $scope.dieFace === 3 || $scope.dieFace === 4 || $scope.dieFace === 5){
+        $scope.dieFace = 2;
       }
     }
 
@@ -139,10 +147,25 @@ angular.module('planarApp')
 
     $scope.initGame = function(){
       $scope.planarDeck = cardService.getDeck();
-      console.log(cardService.getDeck());
       $scope.genDeck($scope.planarDeck);
     }
 
     $scope.initGame();
+    
+    $scope.incCounter = function(){
+      $scope.counter += 1;
+      if($scope.counter > 9){
+        $('.counterText').css('left', '3px');
+      }
+    }
 
+    $scope.decCounter = function(){
+      if($scope.counter === 0){
+        return;
+      }
+      $scope.counter -=1;
+      if($scope.counter < 10){
+        $('.counterText').css('left', '21px');
+      }
+    }
   });
