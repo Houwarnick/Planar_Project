@@ -6,20 +6,15 @@
       </ul>
      </div>
      <div class="startContainer">
+      
+      <div class="startFooter">
+        <div class="deckSize">Deck Size: {{planarDeck.length}}</div>
+      </div>
       <div class="startCard">
         <img ng-src="./images/{{selectedCard.cardID}}.jpeg"/>
       </div>
       <div class="startFooter">
-        <div class="listFunctions">
-          <div class="selectAll"> </div>
-          <div class="deselectAll"> </div>
-        </div>
-        <div class="selectedLength">
-          {{planarDeck.length}}
-        </div>
-        <div class="startGame">
-          <div ng-click="toGameView()">Start Game</div>
-        </div>
+        <div ng-click="toGameView()" class="startBtn">Start Game</div>
       </div>
      </div>
     

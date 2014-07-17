@@ -174,12 +174,6 @@ label {
 	background-color: white;
 }
 
-.listFunctions {
-	height: 32px;
-	width: 150px;
-	background-color: red;
-	display: inline-block;
-}
 
 .selectedLength {
 	display: inline-block;
@@ -187,8 +181,15 @@ label {
 	width: 150px;
 }
 
-.startGame {
-	height: 32px;
-	width: 90px;
-	display: inline-block;
+.startBtn {
+	text-align: center;
+	font-size: 28px;
+	background-color: #34FA38;
+}
+
+.deckSize {
+	text-align: center;
+	font-size: 23px;
+	background-color: gray;
+	color: white;
 }
