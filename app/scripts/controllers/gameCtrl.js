@@ -1,5 +1,5 @@
 angular.module('planarApp')
-  .controller('GameCtrl', function ($scope, $filter, cardService) {
+  .controller('GameCtrl', function ($scope, $filter, cardService, $location) {
   	$scope.dieFace=2;
     $scope.allCards = cardService.cards;
     $scope.hideSpatial = false;
@@ -167,5 +167,10 @@ angular.module('planarApp')
       if($scope.counter < 10){
         $('.counterText').css('left', '21px');
       }
+    }
+
+
+    $scope.toMainView = function(){
+      $location.path('/');
     }
   });

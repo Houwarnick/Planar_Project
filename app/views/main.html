@@ -1,13 +1,25 @@
      <div class="cardList">
       <ul ng-repeat="card in allCards">
-       <li>
-         <input type="checkbox" name="{{card.name}}" id="{{card.cardID" ng-model="card.checked" ng-change="selectedCards()">
-         <label for="{{card.name}}">{{card.name}}</label>
+       <li ng-class="{selected: card.checked}">
+         <label name="{{card.name}}" id="{{card.cardID" ng-model="card.checked" ng-click="selectedCards(card)" for="{{card.name}}" class="cardList">{{card.name}}</label>
        </li>
       </ul>
      </div>
-
      <div class="startContainer">
-      <a ng-click="toGameView()"><button class="btn">Start Game</button></a>
+      <div class="startCard">
+        <img ng-src="./images/{{selectedCard.cardID}}.jpeg"/>
+      </div>
+      <div class="startFooter">
+        <div class="listFunctions">
+          <div class="selectAll"> </div>
+          <div class="deselectAll"> </div>
+        </div>
+        <div class="selectedLength">
+          {{planarDeck.length}}
+        </div>
+        <div class="startGame">
+          <div ng-click="toGameView()">Start Game</div>
+        </div>
+      </div>
      </div>
     

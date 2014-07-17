@@ -37,7 +37,7 @@ body {
 .cardContainer {
 	height: 538px;
 	width:820px;
-	background-color: white;
+	background-color: black;
 	float: left;
 }
 .card {
@@ -130,3 +130,65 @@ body {
 	top: 38px;
 }
 
+.selected {
+	color: #34FA38;
+}
+
+ul > li {
+	color: red;
+	font-size: 20px;
+	line-height: 10px;
+}
+
+label {
+	cursor: pointer;
+}
+
+.cardList {
+	color: white;
+	background-color: black;
+	padding-top: 6px;
+
+
+}
+
+.startContainer {
+	background-color: black;
+	height: 344px;
+	width: 400px;
+	border-radius: 15px;
+	position: fixed;
+	top: 50px;
+	left: 450px;
+	z-index: 1;
+}
+
+
+.startCard img{
+	border-radius: 21px
+}
+
+.startFooter {
+	height: 32px;
+	width: 400px;
+	background-color: white;
+}
+
+.listFunctions {
+	height: 32px;
+	width: 150px;
+	background-color: red;
+	display: inline-block;
+}
+
+.selectedLength {
+	display: inline-block;
+	height: 32px;
+	width: 150px;
+}
+
+.startGame {
+	height: 32px;
+	width: 90px;
+	display: inline-block;
+}
