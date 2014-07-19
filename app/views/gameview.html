@@ -7,8 +7,10 @@
       <div class="headerBlock" id="counter" ng-click="">
         <span class="counterText">{{counter}}</span>
         <div id="counterTop" ng-click="incCounter()">
+          <p class="counterSymb">+</p>
         </div>
         <div id="counterBot" ng-click="decCounter()">
+          <p class='counterSymb'>-</p>
         </div>
       </div>
 
@@ -24,10 +26,12 @@
       
 
       <div class="float">
-        <button class="btn" ng-click="viewPrevModal()">Prev.</button>
+        <div class="leftBtn" ng-click="viewPrevModal()">Prev.</div>
+        <span class="cardsRem">Cards Left: {{planarDeck.length - 1}}</span>
+        <div class="leftBtn" ng-click="toMainView()">To Main Page</div>
+        
       </div>
 
-  	  <div class="cardContainer">
         <img class="card" ng-show="!hideSpatial" ng-src="./images/{{planarDeck[0].cardID}}.jpeg"/>
         
         <img class="spatialCard" ng-show="hideSpatial" ng-src="./images/{{spatialPlane1.cardID}}.jpeg"/>
@@ -68,12 +72,9 @@
         </div> <!-- /.modal -->
 
 
-  	  </div>
-  	  <div class="float">
-        <span class="cardsRem">{{planarDeck.length}}</span>
-  	  </div>	
+  	  
   	</div>
   	<div class="footer">
-      <a ng-click="toMainView()"><button class="btn">To Main Page</button></a>
+   
   	</div>
    

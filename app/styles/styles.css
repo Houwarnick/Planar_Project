@@ -1,16 +1,23 @@
-html {
-	height: 768px;
-	width: 1024px;
+@media (min-width: 1025px){
+	html {
+		width: 100%;
+	}
 }
+@media (max-width: 1024px){
+	html {
+		width: 1024px;
+	}
+}
+
 body {
-	height: 768px;
-	width: 1024px;
+	width: 100%;
+	background-color: black;
 }
 
 .header {
 	background-color: gray;
 	height: 115px;
-	width:1024px;
+	width:100%;
 	z-index: -1;
 }
 .headerBlock {
@@ -26,26 +33,26 @@ body {
 }
 .footer {
 	clear: both;
-	background-color: gray;
+	background-color: black;
 	height: 115px;
-	width: 1024px;
+	width: 100%;
 }
 .mainContainer {
-	height:538px;
-	width:1024px;
+	height:438px;
+	width:100%;
 }
 .cardContainer {
-	height: 538px;
-	width:820px;
+	height: 100%;
 	background-color: black;
 	float: left;
+
 }
 .card {
 	background-size: 400px 279px;
 	background-color: black;
 	border-radius: 23px;
 	position: relative;
-	top:135px;
+	top:80px;
 	left:200px;
 	
 }
@@ -62,7 +69,7 @@ body {
 	float: left;
 	background-color: black;
 	width: 102px;
-	height: 538px;
+	height: 438px;
 }
 
 .modal-dialog {
@@ -109,23 +116,21 @@ body {
 }
 
 #counterTop {
-	background-color: white;
-	width: 75px;
+	background-color: transparent;
+	width: 100px;
 	height: 38px;
 	z-index: 3;
 	position: absolute;
-	opacity: 0;
 	left: 0px;
 	top: 0px;
 }
 
 #counterBot {
-	background-color: white;
-	width: 75px;
+	background-color: transparent;
+	width: 100px;
 	height: 37px;
 	z-index: 3;
 	position: absolute;
-	opacity: 0;
 	left: 0px;
 	top: 38px;
 }
@@ -136,8 +141,7 @@ body {
 
 ul > li {
 	color: red;
-	font-size: 20px;
-	line-height: 10px;
+	font-size: 18px;
 }
 
 label {
@@ -154,12 +158,12 @@ label {
 
 .startContainer {
 	background-color: black;
-	height: 344px;
+	height: 350px;
 	width: 400px;
 	border-radius: 15px;
 	position: fixed;
 	top: 50px;
-	left: 450px;
+	left: 350px;
 	z-index: 1;
 }
 
@@ -171,7 +175,8 @@ label {
 .startFooter {
 	height: 32px;
 	width: 400px;
-	background-color: white;
+	background-color: black;
+	margin-top: 5px;
 }
 
 
@@ -185,11 +190,39 @@ label {
 	text-align: center;
 	font-size: 28px;
 	background-color: #34FA38;
+	cursor: pointer;
+	border-radius: 5px;
+	border: 2px outset #34FA30;
 }
 
 .deckSize {
 	text-align: center;
 	font-size: 23px;
-	background-color: gray;
+	background-color: black;
 	color: white;
+}
+
+.counterSymb {
+	text-align: right;
+	font-size: 18px;
+	margin-right: 7px;
+	font-weight: bolder;
+}
+
+.leftBtn {
+	width: 102px;
+	display: block;
+	font-size: 18px;
+	background-color: #BFBFBF;
+	text-align: center;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 2px outset;
+}
+
+.cardsRem {
+	color: white;
+
 }
