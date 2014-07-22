@@ -144,6 +144,9 @@ angular.module('planarApp')
 
     $scope.initGame = function(){
       $scope.planarDeck = cardService.getDeck();
+      if(!$scope.planarDeck){
+        $scope.planarDeck = cardService.cards;
+      }
       $scope.genDeck($scope.planarDeck);
     }
 
