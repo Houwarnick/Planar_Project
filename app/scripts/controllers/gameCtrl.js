@@ -166,7 +166,7 @@ angular.module('planarApp')
       if($scope.counter === 0){
         return;
       }
-      $scope.counter -=1;
+      $scope.counter = 0;
       if($scope.counter < 10){
         $('.counterText').css('left', '21px');
       }
