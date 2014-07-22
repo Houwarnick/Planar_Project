@@ -117,22 +117,24 @@ body {
 
 #counterTop {
 	background-color: transparent;
-	width: 100px;
+	width: 75px;
 	height: 38px;
 	z-index: 3;
 	position: absolute;
 	left: 0px;
 	top: 0px;
+	text-align: top;
 }
 
 #counterBot {
 	background-color: transparent;
-	width: 100px;
+	width: 75px;
 	height: 37px;
 	z-index: 3;
 	position: absolute;
 	left: 0px;
 	top: 38px;
+	text-align: bottom;
 }
 
 .selected {
@@ -203,7 +205,7 @@ label {
 }
 
 .counterSymb {
-	text-align: right;
+	text-align: center;
 	font-size: 18px;
 	margin-right: 7px;
 	font-weight: bolder;

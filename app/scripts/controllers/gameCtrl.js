@@ -60,12 +60,9 @@ angular.module('planarApp')
     //rolls a virtual 6 sided die, side 1 executes planeswalk,
     //side 6 shows chaos side, all others show a blank side.
     $scope.roll = function(){
-      $scope.dieFace = _.random(1, 6);
+        $scope.dieFace = _.random(1, 6);
       if($scope.dieFace === 1){
         $scope.planeswalk();
-      }
-      else if($scope.dieFace === 2 || $scope.dieFace === 3 || $scope.dieFace === 4 || $scope.dieFace === 5){
-        $scope.dieFace = 2;
       }
     }
 
@@ -173,4 +170,5 @@ angular.module('planarApp')
     $scope.toMainView = function(){
       $location.path('/');
     }
+
   });
