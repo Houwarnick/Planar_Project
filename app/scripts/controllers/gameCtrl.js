@@ -7,6 +7,7 @@ angular.module('planarApp')
     $scope.prevCards = [];
     $scope.intTunnelCards = [];
     var notUsedCards = [];
+    var startingDeck = [];
     $scope.spatialPlane1 = {};
     $scope.spatialPlane2 = {};
     $scope.counter = 0;
@@ -51,8 +52,8 @@ angular.module('planarApp')
       else{
         $scope.hideSpatial = false;
         nextCard();
-        $scope.isSpatial();
-        $scope.isIntTunnel();
+        isSpatial();
+        isIntTunnel();
       }
   	}
 
@@ -67,7 +68,7 @@ angular.module('planarApp')
     }
 
     //check for spatial merging card
-    $scope.isSpatial = function(){
+    var isSpatial = function(){
       if($scope.planarDeck[0].cardID === "39"){
         alert("Spatial Merging, The next 2 planes are active!");
         $scope.spatialPlane1 = 0;
@@ -116,7 +117,7 @@ angular.module('planarApp')
       }
     }
 
-     $scope.isIntTunnel = function(){
+     var isIntTunnel = function(){
       if($scope.planarDeck[0].cardID === "34"){
         alert("Interplanar Tunnel, choose which plane to planeswalk to");
         $scope.viewIntTunnel();
@@ -147,7 +148,9 @@ angular.module('planarApp')
       if(!$scope.planarDeck){
         $scope.planarDeck = cardService.cards;
       }
+      startingDeck = $scope.planarDeck;
       $scope.genDeck($scope.planarDeck);
+      
     }
 
     $scope.initGame();
@@ -171,6 +174,7 @@ angular.module('planarApp')
 
 
     $scope.toMainView = function(){
+      cardService.setDeck(startingDeck);
       $location.path('/');
     }
 
