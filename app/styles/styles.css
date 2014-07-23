@@ -21,7 +21,7 @@ body {
 }
 
 .header {
-	background-color: gray;
+	background-color: black;
 	height: 115px;
 	width:100%;
 	z-index: -1;
@@ -36,6 +36,7 @@ body {
 }
 .headerBlock img {
 	border-radius: 15px;
+	border: 2px solid white;
 }
 .footer {
 	clear: both;
@@ -94,8 +95,9 @@ body {
 .counterText {
 	position: relative;
 	font-size: 60px;
-	left: 21px;
-	top: -5px;
+	left: 20px;
+	top: -7px;
+	color: white;
 
 }
 #counter {
@@ -103,18 +105,21 @@ body {
     top:20px;
     border-radius: 15px;
     z-index: 2;
+    border: 2px solid white;
+    background: black;
 }
 
 #dice {
 	border-radius: 15px;
     left:275px;
     top:20px;
+    opacity: 1;
 }
 
 #pw {
 	border-radius: 15px;
 	left: 675px;
-	top: 10px;
+	top: 20px;
 	background-color: transparent;
 	position: absolute;
 	display: inline-block;
