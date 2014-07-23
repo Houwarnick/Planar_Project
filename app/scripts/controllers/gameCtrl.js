@@ -51,9 +51,9 @@ angular.module('planarApp')
       }
       else{
         $scope.hideSpatial = false;
-        $(".card").css({opacity:0}).delay(250);       
+        $(".card").css({opacity:0}).delay(1000);       
         nextCard();
-        $(".card").animate({ opacity: 1 }, 250);
+        $(".card").animate({ opacity: 1 }, 450);
         isSpatial();
         isIntTunnel();
       }
@@ -63,9 +63,9 @@ angular.module('planarApp')
     //rolls a virtual 6 sided die, side 1 executes planeswalk,
     //side 6 shows chaos side, all others show a blank side.
     $scope.roll = function(){
-      $("#dice").css({opacity:0}).delay(250);
+      $("#dice").css({opacity:0}).delay(150);
       $scope.dieFace = _.random(1, 6);
-      $("#dice").animate({ opacity: 1 }, 250);
+      $("#dice").animate({ opacity: 1 }, 150);
       if($scope.dieFace === 1){
         $scope.planeswalk();
       }
