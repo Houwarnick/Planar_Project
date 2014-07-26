@@ -51,9 +51,9 @@ angular.module('planarApp')
       }
       else{
         $scope.hideSpatial = false;
-        $(".card").css({opacity:0}).delay(1000);       
+        $(".card").css({opacity:0}).delay(400);       
         nextCard();
-        $(".card").animate({ opacity: 1 }, 450);
+        $(".card").animate({ opacity: 1 }, 350);
         isSpatial();
         isIntTunnel();
       }
